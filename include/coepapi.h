@@ -2,7 +2,6 @@
 # define COEPAPI_H
 
 # include "mongoose.h"
-# include "mjson.h"
 # include <curl/curl.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -14,6 +13,7 @@ struct s_api {
 	char cep[9];
 	char url[50];
 	char *rmt_content;
+	long response_code;
 };
 typedef struct s_api t_waiter;
 
