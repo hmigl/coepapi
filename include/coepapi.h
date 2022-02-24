@@ -1,5 +1,5 @@
-#ifndef FT_WAITER_H
-# define FT_WAITER_H
+#ifndef COEPAPI_H
+# define COEPAPI_H
 
 # include "mongoose.h"
 # include "mjson.h"
@@ -31,6 +31,17 @@ enum e_methods {
 	DELETE,
 };
 
+/*
+ * api (or http server)
+ */
+void handle_method(struct mg_connection *c, struct mg_http_message *req_info);
+int find_out_method(const char *method);
+void get_info(struct mg_connection *c, struct mg_http_message *req_info);
+
+/*
+ * http client
+ */
+void client_role(struct mg_connection *c);
 char *fetch_third_party_api(void);
 
-#endif // FT_WAITER_H
+#endif // COEPAPI_H
