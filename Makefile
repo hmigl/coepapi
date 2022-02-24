@@ -6,7 +6,6 @@ INCLUDE_DIR := include
 
 CFLAGS := -Wall -Wextra -Werror -g
 LDFLAGS := -lcurl
-#MFLAGS := -DMG_ENABLE_LOG=0
 CC := gcc $(CFLAGS)
 
 SRC = coepapi.c http_server.c http_client.c \
@@ -18,24 +17,24 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) -o $@
+	@$(CC) $(OBJ) $(LDFLAGS) -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -I$(INCLUDE_DIR) -c $< -o $@
+	@$(CC) -I$(INCLUDE_DIR) -c $< -o $@
 
 $(OBJ): | $(OBJ_DIR)
 
 $(OBJ_DIR):
-	mkdir $@
+	@mkdir $@
 
 run: all
 	./coepapi
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
