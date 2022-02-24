@@ -18,6 +18,12 @@ int find_out_method(const char *method)
 {
 	if (!strncmp(method, "GET", 3))
 		return (GET);
+	if (!strncmp(method, "POST", 4))
+		return (POST);
+	if (!strncmp(method, "PUT", 3))
+		return (PUT);
+	if (!strncmp(method, "DELETE", 6))
+		return (DELETE);
 	return (0);
 }
 
@@ -27,7 +33,9 @@ void handle_method(struct mg_connection *c, struct mg_http_message *req_info)
 
 	if (!method)
 		mg_http_reply(c, 400, "", "");
-	if (method == GET) {
+	if (method == GET)
 		get_info(c, req_info);
-	}
+	else
+		mg_http_reply(c, 405, "", "");
+	log_request(req_info);
 }
