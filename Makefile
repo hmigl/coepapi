@@ -1,4 +1,4 @@
-NAME := ft_waiter
+NAME := coepapi
 
 SRC_DIR := src
 OBJ_DIR := obj
@@ -7,7 +7,7 @@ INCLUDE_DIR := include
 CFLAGS := -Wall -Wextra -Werror -g
 CC := gcc -g -lcurl
 
-SRC = ft_waiter.c fetch_third_party_api.c mongoose.c mjson.c
+SRC = coepapi.c fetch_third_party_api.c mongoose.c mjson.c
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
@@ -23,6 +23,9 @@ $(OBJ): | $(OBJ_DIR)
 
 $(OBJ_DIR):
 	mkdir $@
+
+run: all
+	./coepapi
 
 clean:
 	rm -rf $(OBJ)
