@@ -1,5 +1,19 @@
 #include "cli.h"
 
+static void
+cli_live_mode(void)
+{
+	char buf[256];
+	FILE *log = fopen("../.log/server_log", "r");
+	if (!log) {
+		fprintf(stderr, "Couldn't open file\n");
+		exit(ERR);
+	}
+	while (fgets(buf, 256, log) != NULL)
+		printf("%s", buf);
+	fclose(log);
+}
+
 static void 
 filter_specific_methods(char *method)
 {
@@ -29,7 +43,14 @@ execute_cli_valid_commands(char *argv[])
 	else if (!strncmp(argv[1], "-r", 2)) {
 		char *method = argv[1] + 2;
 		filter_specific_methods(method);
-	} else
+	}
+	else if (!strcmp(argv[1], "--live")) {
+		while (1) {
+			cli_live_mode();
+			sleep(3);
+		}
+	}
+	else
 		display_error_message();
 	return (OK);
 }
