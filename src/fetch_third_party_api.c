@@ -1,4 +1,5 @@
 #include "coepapi.h"
+#include <curl/curl.h>
 
 extern t_waiter waiter;
 
@@ -40,6 +41,8 @@ char *fetch_third_party_api(void)
 		res = curl_easy_perform(curl);
 		if (res != CURLE_OK)
 			fprintf(stderr, "curl failed: %s\n", curl_easy_strerror(res));
+		else
+			curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &waiter.response_code);
 		curl_easy_cleanup(curl);
 	}
 	curl_global_cleanup();
