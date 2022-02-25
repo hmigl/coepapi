@@ -2,18 +2,19 @@
 # define COEPAPI_H
 
 # include "mongoose.h"
-# include <curl/curl.h>
 # include <stdlib.h>
 # include <stdio.h>
 
 # define BR_API "https://brasilapi.com.br/api"
+# define LISTENADD "http://0.0.0.0:8000"
 
 struct s_api {
 	struct mg_mgr mgr;
 	char cep[9];
 	char url[50];
 	char *rmt_content;
-	long response_code;
+	long curl_status_code;
+	char status[4];
 };
 typedef struct s_api t_waiter;
 
