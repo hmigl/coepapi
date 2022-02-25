@@ -4,6 +4,7 @@
 # include "mongoose.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <signal.h>
 
 # define BR_API "https://brasilapi.com.br/api"
 # define LISTENADD "http://0.0.0.0:8000"

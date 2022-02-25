@@ -1,6 +1,14 @@
 #include "coepapi.h"
 
 t_waiter waiter;
+static int done = 0;
+
+static void
+handle_signal(int signum)
+{
+	done = 1;
+	(void)signum;
+}
 
 static void
 ev_handler(struct mg_connection *c, int ev, void *ev_data, void *fn_data)
@@ -29,9 +37,10 @@ ev_handler(struct mg_connection *c, int ev, void *ev_data, void *fn_data)
 
 int main(void)
 {
+	signal(SIGINT, handle_signal);
 	mg_mgr_init(&waiter.mgr);
 	mg_http_listen(&waiter.mgr, LISTENADD, ev_handler, NULL);
-	for (;;)
+	while (!done)
 		mg_mgr_poll(&waiter.mgr, 1000);
 	mg_mgr_free(&waiter.mgr);
 	return (0);
