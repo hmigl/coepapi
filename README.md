@@ -1,62 +1,56 @@
-# Processo Seletivo 42 São Paulo: 42Labs 2ª edição
+![coepapi](https://user-images.githubusercontent.com/88746406/155742706-a4cb5c79-84b7-4a9e-a9cf-ef3f89fd4e46.png)
 
-Nesse desafio você vai construir duas aplicações utilizando C: uma [API](#) e
-uma aplicação de interface de linha de comando([CLI](#)).
+# A simple and easy to use RESP API that fetches data from [Brasil API] (https://brasilapi.com.br/)
 
-## API
+---
+## Built with
+- [mongoose] (https://github.com/cesanta/mongoose)
+- [libcurl] (https://curl.se/libcurl/)
+- [GNU make] (https://www.gnu.org/software/make/)
 
-![Cliente e API REST se comunicando por Requests e
-Responses](./img/01_client_api.png)
+### And heavily tested with [Insomnia] (https://insomnia.rest/)
+---
+## Brief introduction
+...
 
-A API que você irá construir poderá lidar com dados com formato e origem de sua
-escolha. Um exemplo seria fazer uma API que retorna o conteúdo de postagens de
-um blog.
 
-É necessário:
+## How to start using it?
 
-- Que sua API esteja de acordo com o modelo de arquitetura _REST_
-- Implementar pelo menos uma requisição do método `GET` no path `/`, retornando
-  alguma informação no formato JSON e status HTTP `200 OK`
-- Registrar logs em um arquivo; guardando informações sobre todas as requisições
-  e respostas(e.g. horário da requisição, método, etc.)
-  
-## Aplicação CLI
+```bash
+# Clone this repository
+git clone https://github.com/42sp/42labs-selection-process-v2-hmigl.git coepapi
 
-![Exemplo CLI](./img/02_cli_example.png)
+# Go into the cloned folder
+cd coepapi
 
-A aplicação CLI que você irá construir deverá consumir e processar o arquivo de
-logs gerado pela API REST. 
+# Run make
+make
+```
 
-É necessário:
+## What coepapi can do
+- Handle requests at `/cep/v2/{cep}` endpoint and respond with JSON
 
-- Que sua aplicação agrupe os dados dos logs e os mostrem de maneira legível no terminal
-- Que os dados possibilitem uma análise sobre as requisições
+### GET `/cep/v2/70165900` will give you
+```json
+{
+	"cep": "70165900",
+	"state": "DF",
+	"city": "Brasília",
+	"neighborhood": "Zona Cívico-Administrativa",
+	"street": "Praça dos Três Poderes",
+	"service": "viacep",
+	"location": {
+		"type": "Point",
+		"coordinates": {
+			"longitude": "-47.85998",
+			"latitude": "-15.8008449"
+		}
+	}
+}
+```
 
-## O que será avaliado
+- GET `/` will link you the project documentation
 
-- Código bem escrito e limpo
-- A documentação do seu código
-- Quais ferramentas foram usadas e por quê
-- Sua criatividade e capacidade de lidar com problemas diferentes
-- Se seu projeto está alinhado com o que foi proposto
+To be continued...
 
-## O mínimo necessário
 
-- README.md com documentação contendo informações do projeto.
-
-## Bônus
-
-Os seguintes itens não são obrigatórios, porém dão mais valor ao seu trabalho.
-Os destacados são mais significativos para nós.
-
-- **Testes**
-- **Conteinerização das aplicações**
-- **API com conexão a um banco de dados(SQL ou NoSQL, sua escolha)**
-- **Parseamento de argumentos UNIX-like, podendo filtrar ou alterar comportamentos da aplicação(CLI)**
-- Cache básico(caso sua API se comunique com banco de dados)
-- Autenticação e autorização(API)
-- Lidar com requests simultâneos(API)
-- Cuidados especiais com otimização, padrões, entre outros
-- Pipelines de CI/CD
-- Utilização de algum serviço de computação na nuvem
-- Uso de ferramentas externas para diagramação e/ou planejamento das etapas de desenvolvimento
