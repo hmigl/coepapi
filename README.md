@@ -1,14 +1,14 @@
 ![coepapi](https://user-images.githubusercontent.com/88746406/155742706-a4cb5c79-84b7-4a9e-a9cf-ef3f89fd4e46.png)
 
-# A simple and easy to use RESP API that fetches data from [Brasil API] (https://brasilapi.com.br/)
+# A simple and easy to use RESP API that fetches data from [Brasil API](https://brasilapi.com.br/)
 
 ---
 ## Built with
-- [mongoose] (https://github.com/cesanta/mongoose)
-- [libcurl] (https://curl.se/libcurl/)
-- [GNU make] (https://www.gnu.org/software/make/)
+- [mongoose](https://github.com/cesanta/mongoose)
+- [libcurl](https://curl.se/libcurl/)
+- [GNU make](https://www.gnu.org/software/make/)
 
-### And heavily tested with [Insomnia] (https://insomnia.rest/)
+### And heavily tested with [Insomnia](https://insomnia.rest/)
 ---
 ## Brief introduction
 ...
