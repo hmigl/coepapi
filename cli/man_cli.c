@@ -11,6 +11,6 @@ void display_cli_opt_help(void)
 {
 	printf("-a,    --all \tDisplay all log information\n");
 	printf("-d,    --date\tPrint only the dates of requests\n");
-	printf("-r[METHOD]   \tGet all requests made to an url using a specified method\n");
+	printf("-r[METHOD]   \tGet all requests made to an URI using a specified method\n");
 	exit(0);
 }

@@ -25,7 +25,7 @@ execute_cli_valid_commands(char *argv[])
 	if (!strcmp(argv[1], "--all") || !strcmp(argv[1], "-a"))
 		system("cat ../.log/server_log");
 	else if (!strcmp(argv[1], "--date") || !strcmp(argv[1], "-d"))
-		system("grep --regexp={Su,Mo,Tu,We,Th,Fr,Sa} ../.log/server_log");
+		system("grep --regexp=^{Su,Mo,Tu,We,Th,Fr,Sa} ../.log/server_log");
 	else if (!strncmp(argv[1], "-r", 2)) {
 		char *method = argv[1] + 2;
 		filter_specific_methods(method);
