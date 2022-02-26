@@ -13,9 +13,8 @@ void log_request(struct mg_http_message *req_info)
 		return ;
 	}
 	fprintf(log_file, "Request timestamp:\n%s", ctime(&now));
-	fprintf(log_file, "%.*s\t", (int)req_info->method.len, req_info->method.ptr);
-	fprintf(log_file, "%.*s\t", (int)req_info->uri.len, req_info->uri.ptr);
-	fprintf(log_file, "%.*s\n", (int)req_info->proto.len, req_info->proto.ptr);
+	fprintf(log_file, "%.*s  ", (int)req_info->method.len, req_info->method.ptr);
+	fprintf(log_file, "%.*s\n", (int)req_info->uri.len, req_info->uri.ptr);
 	fprintf(log_file, "Response status: %d\n\n", atoi(waiter.status));
 	fclose(log_file);
 }
