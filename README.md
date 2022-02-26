@@ -1,6 +1,6 @@
 ![coepapi](https://user-images.githubusercontent.com/88746406/155742706-a4cb5c79-84b7-4a9e-a9cf-ef3f89fd4e46.png)
 
-# A simple and easy to use RESP API that fetches data from [Brasil API](https://brasilapi.com.br/)
+# A simple and easy to use REST API that fetches data from [Brasil API](https://brasilapi.com.br/)
 
 ---
 ## Built with
@@ -10,8 +10,12 @@
 
 ### And heavily tested with [Insomnia](https://insomnia.rest/)
 ---
-## Brief introduction
-...
+## Why is this useful?
+Suppose you'd like to know the details about a certain location.
+A [CEP](https://www.significados.com.br/cep/) of that place is the only
+thing needed here. Give it to coepapi and it's done. **It's fast. It's simple.**
+There's no need to open a browser to search for it. In fact, all you need
+is a terminal.
 
 
 ## How to start using it?
@@ -25,10 +29,15 @@ cd coepapi
 
 # Run make
 make
+
+# Execute the program
+./coepapi
 ```
+#### It's now running locally at `http://localhost:8000`
+---
 
 ## What coepapi can do
-- Handle requests at `/cep/v2/{cep}` endpoint and respond with JSON
+- Handle requests at endpoints and respond with JSON
 
 ### GET `/cep/v2/70165900` will give you
 ```json
@@ -49,8 +58,13 @@ make
 }
 ```
 
-- GET `/` will link you the project documentation
+### GET `/` will show you the right endpoint to make a request
+```json
+{
+	"location": "/cep/v2/"
+}
+```
 
-To be continued...
+...
 
 
