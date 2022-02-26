@@ -60,7 +60,7 @@ execute_cli_valid_commands(char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	if (argc == 1)
+	if (argc != 2)
 		display_cli_manual();
 	if (!strcmp(argv[1], "--help"))
 		display_cli_opt_help();
