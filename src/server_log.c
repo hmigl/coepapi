@@ -1,5 +1,4 @@
 #include "coepapi.h"
-#include <time.h>
 # define LOG_PATH ".log/server_log"
 
 extern t_waiter waiter;

@@ -1,5 +1,4 @@
 #include "coepapi.h"
-#include <curl/curl.h>
 
 extern t_waiter waiter;
 
