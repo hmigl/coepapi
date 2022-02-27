@@ -13,7 +13,7 @@ program to consume, process and filter
 ```bash
 ./api_cli [OPTION]
 ```
-**api_cli only works with flags.** Each one of then leads to a diffent behavior
+**api_cli only works with flags.** Each one of them leads to a diffent behavior
 
 ---
 

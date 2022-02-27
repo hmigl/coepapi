@@ -65,6 +65,36 @@ make
 }
 ```
 
-...
+- Inform you immediately in case a given URI does not work, or some
+method is not allowed. In these cases, the proper HTTP response status code
+will be available.
 
 
+For instance, both of the requests below you give you a `404 Not Found`
+status code:
+### GET `/cep/v2/12345678`
+### GET `/uri/does/not/exist`
+
+
+Here, since PUT is not yet implemented, the code you'll receive is `405
+Method not Allowed`:
+### PUT `/cep/v2/70165900`
+
+> Learn more about these status codes [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+- [Log](https://github.com/42sp/42labs-selection-process-v2-hmigl/blob/main/.log/server_log)
+useful information about each request:
+	- Requests timestamps
+	- Used method
+	- Used URI
+	- Received status code
+
+
+> You can then make any use of the information using the [CLI](https://github.com/42sp/42labs-selection-process-v2-hmigl/tree/main/cli#readme)
+that is also part of this repository
+
+## Updates
+This project will be regularly updated with code optimization and bug fixes.
+
+## Contribute
+If you like this project, feel free to contribute!
