@@ -27,9 +27,6 @@ $(OBJ): | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir $@
 
-run: all
-	./coepapi
-
 clean:
 	@rm -rf $(OBJ)
 
