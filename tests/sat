@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#
+# sat - Simple API Tester
+# bash script to test requests; can run multiple times
+# and prints the JSON responses
+#
+baseurl="http://localhost:8000/"
+
+while true; do
+	echo Change default method \(GET\)? \(y/n\); read -r ans
+	echo Insert the URI: \(remember the baseurl is "$baseurl"\); read -r uri
+	if [[ "$ans" == [Yy] ]]; then
+		echo 'Insert method: '; read -r method
+		curl -i "$baseurl""$uri" -X "$method"
+	else
+		curl -i "$baseurl""$uri"
+	fi
+	echo && echo Continue?\(y/n\); read -r c
+	[[ "$c" == [Yy] ]] || break
+done
